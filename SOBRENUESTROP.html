@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW BIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.w3schools.com/w3images/forest.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background: rgba(1, 100, 26, 0.9);
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Barra de navegación */
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ffffff;
+            color: #01641a;
+        }
+
+        /* Botón de menú hamburguesa */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        /* Submenús */
+        .navbar-item {
+            position: relative;
+        }
+
+        .navbar-submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(1, 100, 26, 0.9);
+            padding: 10px 0;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar-item:hover .navbar-submenu {
+            display: block;
+        }
+
+        .navbar-submenu a {
+            color: #ffffff;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            text-align: left;
+        }
+
+        /* Estilo para "NEW BIO" y "Más que productos, un futuro sostenible para todos" */
+        .highlighted-title {
+            font-family: 'Poppins', sans-serif;
+            color: #01641a;
+            font-size: 36px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .highlighted-subtitle {
+            font-family: 'Poppins', sans-serif;
+            color: #01641a;
+            font-size: 24px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contenedor principal */
+        .content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 30px auto;
+            max-width: 1000px;
+            border-radius: 8px;
+            text-align: justify;
+            animation: fadeIn 1.5s ease;
+        }
+
+        h2 {
+            color: #01641a;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+            animation: slideIn 1s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            animation: bounceIn 1s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            80% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        /* Estilo para la imagen específica */
+        .content .highlighted-image {
+            float: right;
+            width: 420px; /* Ajusta el tamaño según sea necesario */
+            margin: 0 0 20px 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            animation: swing 1s ease infinite alternate;
+        }
+
+        /* Animación de movimiento para la imagen */
+        @keyframes swing {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #01641a;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar a {
+                padding: 10px;
+                text-align: center;
+                border-top: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Mostrar menú al activar el toggle */
+            .navbar.show {
+                display: flex;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.navbar').classList.toggle('show');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Encabezado con barra de navegación y botón de menú -->
+    <header>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <div class="navbar">
+            <div class="navbar-item">
+                <a href="javascript:void(0)" title="Nosotros">Nosotros</a>
+                <div class="navbar-submenu">
+                    <a href="QUIENESSOMOS.html" title="¿Quiénes somos?">¿Quiénes somos?</a>
+                    <a href="quebuscamOs.html" title="¿Qué buscamos?">¿Qué buscamos?</a>
+                </div>
+            </div>
+
+            <div class="navbar-item">
+                <a href="#conocenos" title="¡CONOCENOS!">¡CONOCENOS!</a>
+                <div class="navbar-submenu">
+                    <a href="nuestroequipo.html" title="Nuestro equipo y nuestros roles">Nuestro equipo y nuestros roles</a>
+                </div>
+            </div>
+
+            <div class="navbar-item">
+                <a href="#ods" title="ODS que abarca nuestro producto">ODS</a>
+                <div class="navbar-submenu">
+                    <a href="ODS_2.html" title="ODS 2: Hambre cero">ODS 2: Hambre cero</a>
+                    <a href="ODS_13.html" title="ODS 13: Acción por el clima">ODS 13: Acción por el clima</a>
+                </div>
+            </div>
+
+            <div class="navbar-item">
+                <a href="#producto" title="Nuestro producto">Nuestro Producto</a>
+                <div class="navbar-submenu">
+                    <a href="INGREDIENTES.HTML">ingredientes Y BENEFICIOS</a>
+                </div>
+            </div>
+
+            <div class="navbar-item">
+                <a href="#contact" title="Contáctanos">Contáctanos</a>
+                <div class="navbar-submenu">
+                    <a href="CONTACTO.html" title="¡CONTACTANOS AQUÍ!">¡CONTÁCTANOS AQUÍ!</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido de la página -->
+    <div class="content">
+        <h2 id="home" class="highlighted-title">SOBRE NUESTRO PRODUCTO</h2>
+        <img src="f0b0ea90-0ed3-4521-b9c6-03a0b1df6cb3.jpg" title="Foto de nuestro producto" class="highlighted-image" alt="Foto de nuestro producto">
+        <p>Este producto esta hecho para evitar el uso excesivo del plástico que hace que el mundo esté cambiando y hay muchos productos que se desechan y contaminan al ambiente, por eso queremos evitar la contaminación reemplazando los utensilios de plástico por utensilios que nos sirva para alimentarnos, asi evitando el desecho de aquellos plasticos que contaminan el ambiente.</p>
+        <p>Ofreciendo productos innovadores y ecológicos que destacan por su versatilidad, sostenibilidad, diseño y delicioso sabor, con nuestras cucharas no solo disfrutarás de una comida saludable, sino que también reduces aquellos residuos que contaminan</p>
+        <p>Nuestras cucharas comestibles están diseñadas para ser mucho más que una simple herramienta de uso cotidiano. Con cada bocado, buscamos demostrar que es posible disfrutar de productos prácticos y funcionales sin sacrificar el bienestar del planeta. Este enfoque refleja nuestro compromiso por fomentar una mentalidad más consciente en el consumo, donde cada elección importa. Nos esforzamos en crear soluciones que no solo faciliten tu día a día, sino que también tengan un impacto positivo a largo plazo en nuestro entorno.</p>
+        <p>Con <b>NEW BIO</b>, cada detalle cuenta. Desde la elección de ingredientes hasta el diseño de nuestras cucharas, trabajamos pensando en un futuro en el que la sostenibilidad sea la norma. Queremos que cada cliente se sienta orgulloso de ser parte de este cambio y que nuestra propuesta inspire a otros a repensar el consumo de utensilios cotidianos. Juntos, podemos marcar una diferencia significativa en la protección y conservación de nuestro planeta para las futuras generaciones.</p>
+        <img src="18c2e881-afc8-48bb-9fb9-1cac5d62530f.jpg" title="LOGO DE NUESTRA EMPRESA NEW BIO" alt="Logo de nuestra empresa NEW BIO">
+        <h2 id="home" class="highlighted-title" title="NEW BIO">NEW BIO</h2>
+        <h2 class="highlighted-subtitle" title="Más que productos, un futuro sostenible para todos">Más que productos, un futuro sostenible para todos</h2>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 NEW BIO. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
